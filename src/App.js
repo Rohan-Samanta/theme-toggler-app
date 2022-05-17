@@ -3,10 +3,18 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import Brightness6RoundedIcon from "@mui/icons-material/Brightness6Rounded";
 function App() {
+  const sunMoonContainer = document.querySelector(".sun-moon-container");
+
   const changeTheme = () => {
     document.body.classList.toggle("dark");
     //console.log(document.body.classList);
+
+    const currentRotation = parseInt(
+      getComputedStyle(sunMoonContainer).getPropertyValue("--rotation")
+    );
+    sunMoonContainer.style.setProperty("--rotation", currentRotation + 180);
   };
+
   return (
     <div className="App">
       <h1 className="title">Theme Swapper</h1>
